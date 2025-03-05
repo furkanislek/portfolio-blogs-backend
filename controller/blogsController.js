@@ -2,7 +2,7 @@ const Blogs = require("../models/Blogs");
 
 exports.getBlogs = async (req, res) => {
   try {
-    const blogs = await Blogs.find();
+    const blogs = await Blogs.find().sort({ createdAt: -1 });
     res.json(blogs);
   } catch (error) {
     res.status(500).json({ error: "Server error" });

@@ -2,7 +2,7 @@ const Education = require("../models/Education");
 
 exports.getEducations = async (req, res) => {
   try {
-    const educations = await Education.find().sort({ createdAt: 1 });;
+    const educations = await Education.find().sort({ createdAt: 1 });
     res.json(educations);
   } catch (error) {
     res.status(500).json({ error: "Server error" });
