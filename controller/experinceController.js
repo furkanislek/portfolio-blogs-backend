@@ -21,15 +21,17 @@ exports.createExperiences = async (req, res) => {
 
 exports.updateExperience = async (req, res) => {
   try {
-    const Experience = await Experience.findByIdAndUpdate(
+    const updatedData = await Experience.findByIdAndUpdate(
       req.params.id,
       req.body
     );
-    if (!Experience) {
+    if (!updatedData) {
       return res.status(404).json({ error: "Experience not found" });
     }
-    res.json(Experience);
+    res.json(updatedData);
   } catch (error) {
+    console.log(error);
+    
     res.status(500).json({ error: "Server error" });
   }
 };
